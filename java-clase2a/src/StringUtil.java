@@ -1,4 +1,3 @@
-package meli.ejerc;
 
 public class StringUtil
 {
@@ -70,11 +69,28 @@ public class StringUtil
 				posicion--;
 			}
 		}
-
-
 		return band ? s.substring(0, posicion+1) : s;
 	}
+	//Retorna una cadena indentica a s pero sin espacios a la derecha ni a la izquierda.
+	public static String trim(String s)
+	{
+		return ltrim(rtrim(s));
+	}
 
+	//Retorla la posicion de la n-esima ocurrencia del caracter c dentro de s, o -1 si no contiene a c
+	public static int indexOfN(String s, char c, int n){
+		boolean band = false;
+		int i=0, cont=0, tam = s.length();
+		while(cont < n && i < tam){
+			if(s.charAt(i) == c){
+				cont++;
+			}
+			i++;
+		}
+		if(cont == n)
+			return i;
+		return -1;
+	}
 	// Retorna un String[] conteniendo los elementos de arr
 	// representados como cadenas de caracteres
 	public static String[] toStringArray(int arr[])
